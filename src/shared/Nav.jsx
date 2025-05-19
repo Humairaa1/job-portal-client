@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import AuthContex from '../context/AuthContext'
 
 export default function Nav() {
+
+    const { user,logOut } = useContext(AuthContex);
+
+    const handleLogOut = ()=>{
+        logOut()
+        .then(()=>{
+            console.log("logout successfully")
+        })
+        .then(error=>{
+            console.log("error happend for logout: ",error)
+        })
+    }
 
     const links = <>
         <li><a>Item 1</a></li>
@@ -21,7 +34,7 @@ export default function Nav() {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">JOb Portal</a>
+                <Link to={'/'}><button className="btn btn-ghost text-xl">JOb Portal</button></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -29,8 +42,18 @@ export default function Nav() {
                 </ul>
             </div>
             <div className="navbar-end gap-5">
-                <Link to={'/register'}>Register</Link>
-                <a className="btn">Login</a>
+                {
+                    user ?
+                        <>
+                            <button onClick={handleLogOut} className='btn'>Log Out</button>
+                        </>
+                        :
+                        <>
+                            <Link to={'/register'}>Register</Link>
+                            <Link to={'/login'}><button className="btn">Login</button></Link>
+                        </>
+                }
+
             </div>
         </div>
     )
