@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import lottieLogin from '../assets/login.json'
+import lottieLogin from '../../data/login.json'
 import { useContext } from 'react';
 import AuthContex from '../context/AuthContext';
 

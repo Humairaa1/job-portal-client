@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import lottieRegister from '../assets/registration.json'
+import lottieRegister from '../../data/registration.json'
 import Lottie from 'lottie-react'
 import AuthContex from '../context/AuthContext'
 

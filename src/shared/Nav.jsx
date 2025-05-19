@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { motion } from "motion/react"
+import { Link, NavLink } from 'react-router-dom'
 import AuthContex from '../context/AuthContext'
+import logo from '../assets/logo.png'
 
 export default function Nav() {
 
@@ -17,8 +19,8 @@ export default function Nav() {
     }
 
     const links = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>       
     </>
 
     return (
@@ -34,7 +36,16 @@ export default function Nav() {
                         {links}
                     </ul>
                 </div>
-                <Link to={'/'}><button className="btn btn-ghost text-xl">JOb Portal</button></Link>
+                <div className='flex gap-2 items-center'>
+                    <img className='w-12' src={logo} alt="logo" />
+                    <Link to={'/'}><button className="text-2xl font-bold">
+                        <motion.span
+                        animate={{color:["#5e32a8","#8932a8","#fc05f4"]}}
+                        transition={{duration:5,repeat:Infinity}}
+                        >
+                        JOb Portal
+                        </motion.span></button></Link>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
