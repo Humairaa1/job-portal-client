@@ -2,25 +2,26 @@ import React, { useContext } from 'react'
 import lottieRegister from '../../data/registration.json'
 import Lottie from 'lottie-react'
 import AuthContex from '../context/AuthContext'
+import Google from '../shared/Google';
 
 
 export default function Register() {
 
-    const {createUser} =useContext(AuthContex);
+    const { createUser } = useContext(AuthContex);
 
-    const handleRegister=(e)=>{
+    const handleRegister = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         // console.log(email,password)
-        createUser(email,password)
-        .then(result=>{
-            console.log(result.user)
-        })
-        .catch(error=>{
-            console.log(error.message)
-        })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
 
     }
 
@@ -42,6 +43,10 @@ export default function Register() {
                             <button type='submit' className="btn btn-neutral mt-4">Register</button>
                         </fieldset>
                     </form>
+                    <div className="divider">OR</div>
+                    <div className='flex justify-center mb-4'>
+                        <Google></Google>
+                    </div>
                 </div>
             </div>
         </div>

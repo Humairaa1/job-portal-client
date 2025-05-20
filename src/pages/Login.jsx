@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import lottieLogin from '../../data/login.json'
 import { useContext } from 'react';
 import AuthContex from '../context/AuthContext';
+import Google from '../shared/Google';
 
 export default function Login() {
 
@@ -40,6 +41,10 @@ export default function Login() {
                             <button type='submit' className="btn btn-neutral mt-4">Login</button>
                         </fieldset>
                     </form>
+                    <div className="divider">OR</div>
+                    <div className='flex justify-center mb-4'>
+                        <Google></Google>
+                    </div>
                 </div>
             </div>
         </div>
