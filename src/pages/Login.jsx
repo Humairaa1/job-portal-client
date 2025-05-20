@@ -3,10 +3,14 @@ import lottieLogin from '../../data/login.json'
 import { useContext } from 'react';
 import AuthContex from '../context/AuthContext';
 import Google from '../shared/Google';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
     const {loginUser} = useContext(AuthContex);
+    const location = useLocation();
+    const navigate= useNavigate();
+    const from = location.state || "/";
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -17,6 +21,7 @@ export default function Login() {
         loginUser(email,password)
         .then(result=>{
             console.log('login user : ',result.user);
+            navigate(from)
         })
         .then(error=>{
             console.log(error.message);
