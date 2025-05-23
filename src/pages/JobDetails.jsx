@@ -1,10 +1,10 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 
 export default function JobDetails() {
 
     const jobs = useLoaderData();
-    const { title, location, description, company, jobType, applicationDeadline, salaryRange, requirements, responsibilities, status } = jobs;
+    const {_id, title, location, description, company, jobType, applicationDeadline, salaryRange, requirements, responsibilities, status } = jobs;
 
     return (
         <div className='w-8/12 mx-auto mt-10'>
@@ -46,7 +46,8 @@ export default function JobDetails() {
                 </div>
             </div>
 
-            <p className='mt-5'>Description : {description}</p>
+            <p className='my-5'>Description : {description}</p>
+            <Link to={`/applyjob/${_id}`} className='btn btn-primary'>Apply Now</Link>
 
         </div>
     )
