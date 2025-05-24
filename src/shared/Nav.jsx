@@ -20,7 +20,7 @@ export default function Nav() {
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><NavLink to={'/'}>Home</NavLink></li>       
+        <li><NavLink to={'/addjob'}>Add Job</NavLink></li>       
     </>
 
     return (
